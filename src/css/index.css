@@ -56,13 +56,14 @@ td {
 	height: 40px;
 	padding-top: 10px;
 	padding-left: 20px;
+	border-bottom: 1px solid #000;
 }
 .layui-btn {
 	padding: 0 15px!important;
 }
 .btnsItem {
 	float: left;
-	width: 80px;
+	padding: 0 15px;
 	height: 30px;
 	margin-right: 10px;
 }
@@ -106,7 +107,7 @@ td {
 	border-bottom: 1px solid #e6e6e6!important;
 } */
 .dt {
-	width: 60px;
+	width: 100px!important;
 }
 #title {
 	background-color: #e6e6e6;
@@ -115,3 +116,21 @@ td {
 	font-weight: 600;
 	text-indent: 30px;
 }
+.mainItem {
+	border-bottom: 1px solid #000;
+}
+.mainItemTitle {
+	float: left;
+	border-right: 1px solid #000;
+	height: 215px;
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.mainItemContent {
+	float: left;
+	height: 200px;
+	padding-top: 15px;
+}
+
