@@ -1,0 +1,117 @@
+body, p, h1, h2, h3, h4, h5, h6, dl, dd, form
+{
+	margin: 0;
+}
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #444;
+}
+img {
+	border: none;
+	vertical-align: top;
+}
+input,
+textarea {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
+}
+textarea {
+	resize: none;
+	overflow: auto;
+}
+table {
+	border-collapse: collapse;
+}
+th,
+td {
+	padding: 0;
+}
+
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.div-row {
+    height: 20px;
+    padding: 10px 0;
+}
+.div-row input {
+    line-height: 20px;
+    border: 1px solid #eee;
+}
+#btns {
+	height: 40px;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+.layui-btn {
+	padding: 0 15px!important;
+}
+.btnsItem {
+	float: left;
+	width: 80px;
+	height: 30px;
+	margin-right: 10px;
+}
+#newWrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	/* background-color: #eee; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+#box {
+	width: 450px;
+	height: 550px;
+	border: 1px solid #F2F2F2;
+	background-color: #e6e6e6;
+	border-radius: 4px;
+	overflow: hidden;
+}
+#row-box {
+	background-color: #fff;
+	margin: 0 5px;
+	padding: 5px;
+	border: 1px solid #95B8E7;
+	border-radius: 2px;
+}
+.layui-form-item {
+	display: flex;
+	border: 1px solid #ddd;
+	padding: 5px;
+	border-radius: 6px;
+	background: #fff;
+	margin: 0 20px;
+}
+/* .layui-input {
+	border: none!important;
+	border-bottom: 1px solid #e6e6e6!important;
+} */
+.dt {
+	width: 60px;
+}
+#title {
+	background-color: #e6e6e6;
+	line-height: 48px;
+	font-size: 20px;
+	font-weight: 600;
+	text-indent: 30px;
+}
