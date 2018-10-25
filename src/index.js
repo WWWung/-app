@@ -34,6 +34,8 @@ let form;
 let table;
 let laydate;
 
+var mode = 0;
+
 $("#openNewNameBox").on("click", function() {
     $("#setNewName").css("display", "flex");
 })
@@ -51,12 +53,14 @@ $("#closeDetails").on("click", closeDetails);
 $("#search").on("click", search);
 
 $("#showKcList").on("click", function() {
+    mode = 1;
     $("#list1").show();
     $("#list2").hide();
     $("#list3").hide();
     showKcList();
 });
 $("#showXxList").on("click", function() {
+    mode = 3;
     $("#list1").hide();
     $("#list2").hide();
     $("#list3").show();
@@ -112,8 +116,8 @@ layui.use(["form", "table", "laydate"], () => {
                         } else if (tips < 60 && tips >= 30) {
                             color = "rgba(145, 233, 230, .5)";
                         }
-                        console.log(this)
-                        $($("#xxList")[0].nextElementSibling).find("tr").eq(index).css("background-color", "red");
+                        console.log($("#xxList")[0].nextElementSibling)
+                        // $($("#xxList")[0].nextElementSibling).find("tr").eq(index).css("background-color", "red");
                         return o.tips;
                     }
                 }
@@ -225,6 +229,7 @@ function inRepertory() {
     }
     // console.log(data);
     renderCkName();
+    updateModel();
     alert("入库成功");
 }
 
@@ -246,6 +251,7 @@ function outRepertory() {
     data[name][outTime].out += out;
     var newCount = data[name][outTime].in - data[name][outTime].out;
     $("#ckCount").val(newCount);
+    updateModel();
     alert("出库成功");
 }
 
@@ -426,9 +432,20 @@ function saveDetails() {
         data[name][time].days = days;
     }
     alert("保存成功");
+    updateModel();
     closeDetails();
 }
 
 function closeDetails() {
     $("#newWrap").hide();
+}
+
+function updateModel() {
+    if (mode === 1) {
+        showKcList();
+    } else if (mode === 2) {
+
+    } else if (mode === 3) {
+        showDetailList();
+    }
 }

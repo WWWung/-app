@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <!-- <a href="out.html">出库</a> -->
     <div id="app">
         <div id="btns" class="layui-form clearfix" lay-filter="form">
             <div class="btnsItem">
@@ -57,7 +56,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">药品名称:</label>
                             <select name="name" class="name" lay-search id="rkName">
-                                    </select>
+                            </select>   
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">出厂日期:</label>
@@ -77,58 +76,27 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">药品名称:</label>
                             <select name="ckName" lay-filter="ckName" class="" lay-search id="ckName">
-                                    </select>
+                            </select>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">出厂日期:</label>
                             <select name="ckOutTime" id="ckOutTime" lay-search lay-filter="ckOutTime">
-                                    </select>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label dt">出库量:</label>
-                            <input type="text" class="layui-input items-in-row" id="out" placeholder="请输入出库量">
+                            </select>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">库存量:</label>
                             <input type="text" class="layui-input items-in-row layui-disabled" id="ckCount" placeholder="" disabled>
                         </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label dt">出库量:</label>
+                            <input type="text" class="layui-input items-in-row" id="out" placeholder="请输入出库量">
+                        </div>
                     </div>
-                    <!-- <div class="mainItemContent">
-                                <div class="layui-form-item">
-                                    <label class="layui-form-label dt">库存量:</label>
-                                    <input type="text" class="layui-input items-in-row layui-disabled" id="ckCount" placeholder="" disabled>
-                                </div>
-                            </div> -->
                 </div>
-                <!-- <div class="mainItem clearfix layui-form">
-                    <div class="mainItemTitle">
-                        <button class="layui-btn layui-btn-lg">设置</button>
-                    </div>
-                    <div class="mainItemContent">
-                        <div class="layui-form-item">
-                            <label class="layui-form-label dt">药品名称:</label>
-                            <select name="name" class="name" lay-search>
-                                    </select>
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label dt">药品编号:</label>
-                            <input type="text" class="layui-input items-in-row" id="name" placeholder="请输入药品编号">
-                        </div>
-                        <div class="layui-form-item">
-                            <label class="layui-form-label dt">有效期:</label>
-                            <input type="text" class="layui-input items-in-row" id="name" placeholder="请输入有效期">
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="mainSub">
                 <div id="list1">
                     <div class="listBtns">
-                        <!-- 药品名称/编号
-                        <input type="text" placeholder="药品名称/编号"> 出厂日期
-                        <input type="text"> 到
-                        <input type="text">
-                        <button class="search layui-btn">搜索</button> -->
                     </div>
                     <div id="kcList"></div>
                 </div>
