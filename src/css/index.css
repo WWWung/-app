@@ -1,136 +1,248 @@
-body, p, h1, h2, h3, h4, h5, h6, dl, dd, form
-{
-	margin: 0;
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd,
+form {
+    margin: 0;
 }
+
 ul,
 ol {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+
 a {
-	text-decoration: none;
-	color: #444;
+    text-decoration: none;
+    color: #444;
 }
+
 img {
-	border: none;
-	vertical-align: top;
+    border: none;
+    vertical-align: top;
 }
+
 input,
 textarea {
-	margin: 0;
-	padding: 0;
-	outline: none;
-	border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
 }
+
 textarea {
-	resize: none;
-	overflow: auto;
+    resize: none;
+    overflow: auto;
 }
+
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
+
 th,
 td {
-	padding: 0;
+    padding: 0;
 }
 
 .clearfix {
-	zoom: 1;
+    zoom: 1;
 }
+
 .clearfix:after {
-	content: "";
-	clear: both;
-	display: block;
+    content: "";
+    clear: both;
+    display: block;
 }
+
+
+/* body {
+    background-color: rgba(174, 202, 241, .3);
+} */
 
 .div-row {
     height: 20px;
     padding: 10px 0;
 }
+
 .div-row input {
     line-height: 20px;
     border: 1px solid #eee;
 }
+
 #btns {
-	height: 40px;
-	padding-top: 10px;
-	padding-left: 20px;
-	border-bottom: 1px solid #000;
-}
-.layui-btn {
-	padding: 0 15px!important;
-}
-.btnsItem {
-	float: left;
-	padding: 0 15px;
-	height: 30px;
-	margin-right: 10px;
-}
-#newWrap {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	/* background-color: #eee; */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	display: none;
-}
-#box {
-	width: 450px;
-	height: 550px;
-	border: 1px solid #F2F2F2;
-	background-color: #e6e6e6;
-	border-radius: 4px;
-	overflow: hidden;
-}
-#row-box {
-	background-color: #fff;
-	margin: 0 5px;
-	padding: 5px;
-	border: 1px solid #95B8E7;
-	border-radius: 2px;
-}
-.layui-form-item {
-	display: flex;
-	border: 1px solid #ddd;
-	padding: 5px;
-	border-radius: 6px;
-	background: #fff;
-	margin: 0 20px;
-}
-/* .layui-input {
-	border: none!important;
-	border-bottom: 1px solid #e6e6e6!important;
-} */
-.dt {
-	width: 100px!important;
-}
-#title {
-	background-color: #e6e6e6;
-	line-height: 48px;
-	font-size: 20px;
-	font-weight: 600;
-	text-indent: 30px;
-}
-.mainItem {
-	border-bottom: 1px solid #000;
-}
-.mainItemTitle {
-	float: left;
-	border-right: 1px solid #000;
-	height: 215px;
-	width: 200px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.mainItemContent {
-	float: left;
-	height: 200px;
-	padding-top: 15px;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-bottom: 1px solid #000;
 }
 
+.layui-btn {
+    padding: 0 15px!important;
+}
+
+.btnsItem {
+    float: left;
+    padding: 0 15px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#newWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#box {
+    width: 450px;
+    height: 280px;
+    border: 1px solid #F2F2F2;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fafafa;
+    border: 1px solid #95B8E7;
+}
+
+#row-box {
+    /* background-color: #fff; */
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.layui-form-item:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layui-form-item {
+    display: flex;
+    padding: 5px;
+    border-radius: 6px;
+    /* background: #fff; */
+    margin: 0 20px;
+    margin-bottom: 0!important;
+}
+
+.layui-input {
+    background-color: inherit!important;
+}
+
+.dt {
+    width: 100px!important;
+}
+
+#title {
+    line-height: 48px;
+    font-size: 20px;
+    font-weight: 600;
+    text-indent: 30px;
+}
+
+.mainItem {
+    border-bottom: 1px solid #000;
+}
+
+.mainItemTitle {
+    float: left;
+    border-right: 1px solid #000;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    height: 280px;
+}
+
+.mainSub {
+    float: left;
+    /* width: 620px; */
+    border-right: 1px solid #000;
+}
+
+.mainSub:last-child {
+    padding: 0 10px;
+}
+
+.mainItemContent {
+    float: left;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#kcList {
+    margin-left: 20px;
+}
+
+#setNewName {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .3);
+    display: none;
+    z-index: 50;
+}
+
+.layui-form-item .items-in-row {
+    width: 212px!important;
+    height: 38px!important;
+}
+
+#newNameBox {
+    /* margin-top: -500px; */
+    /* display: flex; */
+    background-color: #fafafa;
+    border: 1px solid #95B8E7;
+    border-radius: 4px;
+    width: 344px;
+}
+
+.listBtns {
+    padding-top: 10px;
+}
+
+.listBtns input {
+    display: inline-block!important;
+    width: 160px;
+}
+
+#newNameBox p {
+    display: flex;
+    margin: 10px;
+}
+
+#list1,
+#list2,
+#list3 {
+    display: none;
+}
+
+#newNameInput {
+    width: 212px;
+    height: 38px;
+}
+
+#newNameBtns {
+    justify-content: center;
+}
