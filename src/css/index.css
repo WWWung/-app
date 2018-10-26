@@ -51,6 +51,10 @@ td {
     padding: 0;
 }
 
+input {
+    border-color: #c6c2c2!important;
+}
+
 .clearfix {
     zoom: 1;
 }
@@ -61,10 +65,10 @@ td {
     display: block;
 }
 
-
-/* body {
-    background-color: rgba(174, 202, 241, .3);
-} */
+body {
+    background-color: rgba(174, 202, 241, .2);
+    background-size: 100% 100%;
+}
 
 .div-row {
     height: 20px;
@@ -220,6 +224,7 @@ td {
 
 .listBtns {
     padding-top: 10px;
+    font-weight: 600;
 }
 
 .listBtns input {

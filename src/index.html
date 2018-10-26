@@ -8,25 +8,60 @@
     <link rel="stylesheet" href="./layui/css/layui.css">
     <script src='./js/jquery-3.3.1.min.js'></script>
     <script src="./layui/layui.all.js"></script>
+    <script>
+        const fs = require("fs");
+        var names = [];
+        var data = {};
+        (function() {
+            var flag = fs.existsSync("C:/ypgl");
+            if (flag) {
+                var isNames = fs.existsSync("C:/ypgl/names.dsd");
+                if (!isNames) {
+                    fs.writeFileSync("C:/ypgl/names.dsd", "", "utf-8");
+                } else {
+                    names = fs.readFileSync("C:/ypgl/names.dsd", "utf-8");
+                    if (!names) {
+                        names = [];
+                    } else {
+                        names = JSON.parse(names);
+                    }
+                }
+                var isData = fs.existsSync("C:/ypgl/data.dsd");
+                if (!isData) {
+                    fs.writeFileSync("C:/ypgl/data.dsd", "", "utf-8");
+                } else {
+                    data = fs.readFileSync("C:/ypgl/data.dsd", "utf-8");
+                    if (!data) {
+                        data = {};
+                    } else {
+                        data = JSON.parse(data);
+                    }
+                }
+            } else {
+                try {
+                    fs.mkdirSync("C:/ypgl");
+                } catch (error) {
+                    alert("文件存储地址错误，请联系开发人员");
+                }
+            }
+        })();
+    </script>
 </head>
 
 <body>
     <div id="app">
         <div id="btns" class="layui-form clearfix" lay-filter="form">
             <div class="btnsItem">
-                <button class="layui-btn layui-btn-sm" id="showKcList">库存信息显示</button>
+                <button class="layui-btn layui-btn-danger layui-btn-sm" id="openNewNameBox">新增药品名称</button>
             </div>
             <div class="btnsItem">
-                <button class="layui-btn layui-btn-sm" id="showGqList">药品过期提醒</button>
+                <button class="layui-btn layui-btn-sm" style="background: #1feebb" id="setDetail">药品基本信息设置</button>
             </div>
             <div class="btnsItem">
-                <button class="layui-btn layui-btn-sm" id="showXxList">药品详细信息</button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm" id="showKcList">库存信息显示</button>
             </div>
             <div class="btnsItem">
-                <button class="layui-btn layui-btn-sm" id="openNewNameBox">新增药品名称</button>
-            </div>
-            <div class="btnsItem">
-                <button class="layui-btn layui-btn-sm" id="setDetail">药品基本信息设置</button>
+                <button class="layui-btn layui-btn-warm layui-btn-sm" id="showXxList">药品详细信息</button>
             </div>
         </div>
         <div id="setNewName" class="layui-form">
@@ -56,7 +91,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">药品名称:</label>
                             <select name="name" class="name" lay-search id="rkName">
-                            </select>   
+                            </select>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label dt">出厂日期:</label>
@@ -109,7 +144,7 @@
                         <input type="text" id="xxListKey" class="layui-input" placeholder="药品名称/编号"> 出厂日期
                         <input type="text" id="searchStartTime" class="layui-input"> 到
                         <input type="text" id="searchEndTime" class="layui-input">
-                        <button class="search layui-btn" id="search">搜索</button>
+                        <button class="search layui-btn" style="background: #e3bb8c" id="search">搜索</button>
                     </div>
                     <div id="xxList"></div>
                 </div>

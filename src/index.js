@@ -1,8 +1,4 @@
-// const fs = require("fs");
-// const mysql = require("mysql");
-// const path = require("path");
-
-// window.$ = window.jQuery = require('./js/jquery-3.3.1.min.js');
+window.$ = window.jQuery = require('./js/jquery-3.3.1.min.js');
 
 /*  药品信息
     models:
@@ -20,8 +16,9 @@
 
 
 //  药品名称
-var names = ["阿莫西林", "板蓝根"];
-var data = {};
+// const addr =
+// let names = ["阿莫西林", "板蓝根"];
+// let data = {};
 
 
 
@@ -105,20 +102,19 @@ layui.use(["form", "table", "laydate"], () => {
                     title: "到期提醒",
                     width: 120,
                     align: "center",
+                    style: "position:relative",
                     templet: function(o) {
                         var index = o.LAY_TABLE_INDEX;
                         var color = "";
                         var tips = Number.parseInt(o.tips);
                         if (o.tips === "已过期") {
-                            color = "rgba(236, 37, 37, .5)";
+                            color = "rgba(236, 37, 37)";
                         } else if (tips < 30 && tips > 0) {
-                            color = "rgba(28, 133, 73, .5)";
+                            color = "rgba(28, 133, 73)";
                         } else if (tips < 60 && tips >= 30) {
-                            color = "rgba(145, 233, 230, .5)";
+                            color = "rgba(145, 233, 230)";
                         }
-                        console.log($("#xxList")[0].nextElementSibling)
-                        // $($("#xxList")[0].nextElementSibling).find("tr").eq(index).css("background-color", "red");
-                        return o.tips;
+                        return "<span style='font-weight:600;color:#000;position:absolute;top:0;left:0;right:0;bottom:0;background-color:" + color + "'>" + o.tips + "</span>";
                     }
                 }
             ]
@@ -161,6 +157,7 @@ layui.use(["form", "table", "laydate"], () => {
     renderCkName();
 })
 
+
 function renderNames(el, names) {
     var html = "<option>请选择药品名称</option>";
     names.forEach(name => {
@@ -185,6 +182,7 @@ function confirmNewName() {
         return;
     }
     names.push(name);
+    saveNames();
     renderNames("#newName", names);
     renderNames(".name", names);
     closeNewNameBox();
@@ -216,6 +214,11 @@ function inRepertory() {
             timeItem.in = _in;
             timeItem.out = 0;
             timeItem.inTime = dateFormatter();
+            for (var time in nameItem) {
+                timeItem.no = nameItem[time].no;
+                timeItem.days = nameItem[time].days;
+                break;
+            }
             nameItem[outTime] = timeItem;
         }
     } else {
@@ -227,7 +230,6 @@ function inRepertory() {
         nameItem[outTime] = timeItem;
         data[name] = nameItem;
     }
-    // console.log(data);
     renderCkName();
     updateModel();
     alert("入库成功");
@@ -247,10 +249,16 @@ function outRepertory() {
     var count = getInt("#ckCount");
     if (out > count) {
         return alert("出库失败, 出库量超过库存量");
+    } else if (out == count) {
+        delete data[name][outTime];
+        if (Object.keys(data[name]).length === 0) {
+            delete data[name];
+        }
+        $("#ckCount").val("");
+    } else {
+        data[name][outTime].out += out;
+        var newCount = data[name][outTime].in - data[name][outTime].out;
     }
-    data[name][outTime].out += out;
-    var newCount = data[name][outTime].in - data[name][outTime].out;
-    $("#ckCount").val(newCount);
     updateModel();
     alert("出库成功");
 }
@@ -441,11 +449,30 @@ function closeDetails() {
 }
 
 function updateModel() {
+    saveData();
     if (mode === 1) {
         showKcList();
     } else if (mode === 2) {
 
     } else if (mode === 3) {
         showDetailList();
+    }
+}
+
+function saveNames() {
+    try {
+        fs.writeFileSync("C:/ypgl/names.dsd", JSON.stringify(names), "utf-8");
+    } catch (error) {
+        fs.writeFileSync("C:/ypgl/err.dsd", JSON.stringify(error), "utf-8");
+        alert("文件储存出现错误，请重启后尝试或联系管理员");
+    }
+}
+
+function saveData() {
+    try {
+        fs.writeFileSync("C:/ypgl/data.dsd", JSON.stringify(data), "utf-8");
+    } catch (error) {
+        fs.writeFileSync("C:/ypgl/err.dsd", JSON.stringify(error), "utf-8");
+        alert("文件储存出现错误，请重启后尝试或联系管理员");
     }
 }
